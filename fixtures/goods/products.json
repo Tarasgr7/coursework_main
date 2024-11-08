@@ -1,0 +1,156 @@
+[
+    {
+        "model": "goods.products",
+        "pk": 1,
+        "fields": {
+            "name": "������ ������ � ��� ������",
+            "slug": "chajnij-stolik-i-tri-stilci",
+            "descriptions": "�������� �� ����� ������� �� ������������� ������ ��� �������.",
+            "image": "",
+            "price": "150.00",
+            "discount": "0.00",
+            "quantity": 18,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 2,
+        "fields": {
+            "name": "������ ������ � ��� ������",
+            "slug": "chajnij-stolik-i-dva-stilci",
+            "descriptions": "���� � ����� �� ���� ������� � �������������� ����.",
+            "image": "",
+            "price": "93.00",
+            "discount": "0.00",
+            "quantity": 24,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 3,
+        "fields": {
+            "name": "���������� ����",
+            "slug": "dvospalne-lizhko",
+            "descriptions": "���������� ���� � ������'�� � ���� �����������.",
+            "image": "",
+            "price": "670.00",
+            "discount": "0.00",
+            "quantity": 31,
+            "category": 4
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 4,
+        "fields": {
+            "name": "�������� ��� �� ���������",
+            "slug": "kuhonnij-stil-iz-rakovinoyu",
+            "descriptions": "�������� ��� ��� ���� � ���������� ��������� �� ��������.",
+            "image": "",
+            "price": "365.00",
+            "discount": "0.00",
+            "quantity": 8,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 5,
+        "fields": {
+            "name": "�������� ��� � ���������� ������",
+            "slug": "kuhonnij-stil-z-vbudovanoyu-plitoyu",
+            "descriptions": "�������� ��� � ���������� ������ �� ���������. ������ ������� � ���� ��������.",
+            "image": "",
+            "price": "430.00",
+            "discount": "0.00",
+            "quantity": 31,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 6,
+        "fields": {
+            "name": "������� ����� ��� ������",
+            "slug": "kutovij-divan-dlya-vitaln",
+            "descriptions": "������� �����, �� ������������ � ���������� ����, �������� �������� ��� ������� ������!",
+            "image": "",
+            "price": "610.00",
+            "discount": "0.00",
+            "quantity": 14,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 7,
+        "fields": {
+            "name": "���������� ������",
+            "slug": "prilizhkovij-stolik",
+            "descriptions": "���������� ������ � ����� ��������� ��������� (����� �� ������� �� ���������).",
+            "image": "",
+            "price": "55.00",
+            "discount": "0.00",
+            "quantity": 10,
+            "category": 4
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 8,
+        "fields": {
+            "name": "����� ���������",
+            "slug": "divan-zvichajnij",
+            "descriptions": "��������� �����, ������ ��������� ��� �����.",
+            "image": "",
+            "price": "190.00",
+            "discount": "0.00",
+            "quantity": 13,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 9,
+        "fields": {
+            "name": "������� ������",
+            "slug": "ofisnij-stilec",
+            "descriptions": "���� ������ ��� ��, ���� �� �������, ��� �� ������, �� ��� ������...",
+            "image": "",
+            "price": "30.00",
+            "discount": "0.00",
+            "quantity": 71,
+            "category": 6
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 10,
+        "fields": {
+            "name": "�������",
+            "slug": "roslina",
+            "descriptions": "������� ��� �������� ������ �����'��� ������ ������ �� �������.",
+            "image": "",
+            "price": "10.00",
+            "discount": "0.00",
+            "quantity": 29,
+            "category": 8
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 11,
+        "fields": {
+            "name": "����� ����������",
+            "slug": "kvitka-stilizovana",
+            "descriptions": "������������ ����� (�������, ������) ��� �������� �����'���.",
+            "image": "",
+            "price": "15.00",
+            "discount": "0.00",
+            "quantity": 20,
+            "category": 8
+        }
+    }
+]
