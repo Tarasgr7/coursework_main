@@ -17,7 +17,7 @@ class CartQueryset(models.QuerySet):
 
 class Cart(models.Model):
 
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name='Користувач')
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Користувач')
     product = models.ForeignKey(to=Products, on_delete=models.CASCADE, verbose_name='Товар')
     quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Кількість')
     session_key = models.CharField(max_length=32, null=True, blank=True)
@@ -35,5 +35,8 @@ class Cart(models.Model):
 
 
     def __str__(self):
-        return f'Корзина {self.user.username} | Товар {self.product.name} | Кількість {self.quantity}'
+        if self.user:
+            return f'Корзина {self.user.username} | Товар {self.product.name} | Кількість {self.quantity}'
+            
+        return f'Анонімна корзина | Товар {self.product.name} | Кількість {self.quantity}'
             

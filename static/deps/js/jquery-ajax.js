@@ -98,27 +98,27 @@ $(document).ready(function () {
         });
     });
 
-    // // Обробка + та - кількості товару
-    // $(document).on("click", ".decrement", function () {
-    //     var url = $(this).data("cart-change-url");
-    //     var cartID = $(this).data("cart-id");
-    //     var $input = $(this).closest('.input-group').find('.number');
-    //     var currentValue = parseInt($input.val());
-    //     if (currentValue > 1) {
-    //         $input.val(currentValue - 1);
-    //         updateCart(cartID, currentValue - 1, -1, url);
-    //     }
-    // });
+    // Обробка + та - кількості товару
+    $(document).on("click", ".decrement", function () {
+        var url = $(this).data("cart-change-url");
+        var cartID = $(this).data("cart-id");
+        var $input = $(this).closest('.input-group').find('.number');
+        var currentValue = parseInt($input.val());
+        if (currentValue > 1) {
+            $input.val(currentValue - 1);
+            updateCart(cartID, currentValue - 1, -1, url);
+        }
+    });
 
-    // // Обробник події для збільшення значення
-    // $(document).on("click", ".increment", function () {
-    //     var url = $(this).data("cart-change-url");
-    //     var cartID = $(this).data("cart-id");
-    //     var $input = $(this).closest('.input-group').find('.number');
-    //     var currentValue = parseInt($input.val());
-    //     $input.val(currentValue + 1);
-    //     updateCart(cartID, currentValue + 1, 1, url);
-    // });
+    // Обробник події для збільшення значення
+    $(document).on("click", ".increment", function () {
+        var url = $(this).data("cart-change-url");
+        var cartID = $(this).data("cart-id");
+        var $input = $(this).closest('.input-group').find('.number');
+        var currentValue = parseInt($input.val());
+        $input.val(currentValue + 1);
+        updateCart(cartID, currentValue + 1, 1, url);
+    });
 
     function updateCart(cartID, quantity, change, url) {
         $.ajax({
@@ -144,10 +144,10 @@ $(document).ready(function () {
 
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
-            },
 
+            },
             error: function (data) {
-                console.log("Помилка при зміні кількості товару");
+                console.log("Помилка при додаванні в корзину");
             },
         });
     }
