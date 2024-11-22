@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+
+{% endblock modal_cart %}
+
 {% block content %}
     <div class="container mt-5">
         <div class="card mb-4 custom-shadow">
@@ -31,12 +36,13 @@
                     </div>
                 </div>
             </div>
-            <!-- Описание товара -->
             <div class="card-body">
                 <p class="card-text">Ціна: <strong>{{product.sell_price}}$</strong></p>
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.descriptions}}</p>
-                <a href="#" class="btn btn-dark add-to-cart">Додати в корзину</a>
+                <a href="{% url "cart:cart_add"  %}" class="btn btn-dark add-to-cart" data-product-id="{{product.id}}">
+                    {% csrf_token %}
+                    Додати в корзину</a>
             </div>
         </div>
     </div>
