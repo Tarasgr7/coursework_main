@@ -26,11 +26,6 @@ aria-hidden="true">
                 {% include "carts/includes/included_cart.html" %}
                 <!-- Кінець розмітки кошика -->
             </div>
-            {% if carts %}
-                <a class="btn btn-dark" href="{% url "orders:create_order" %}">
-                    Оформити замовлення
-                </a>
-            {% endif %}
         </div>
     </div>
 </div>
