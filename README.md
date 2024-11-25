@@ -1,72 +1,81 @@
+# Generating Mermaid UML code for the provided models.
+mermaid_code = """
 ```mermaid
 classDiagram
-    class Main {
-        <<Table>>
-    }
-    
-    class Goods {
-        <<Table>>
+    %% Classes and Attributes
+    class User {
         +id: int
-        +Назва: string
+        +username: string
+        +email: string
+        +password: string
+        +image: ImageField
+        +phone_number: string
     }
 
-    class Товар {
-        <<Table>>
+    class Products {
         +id: int
+        +name: string
         +slug: string
-        +Назва: string
-        +Опис: string
-        +Зображення: string
-        +Кількість: int
-        +Ціна: float
-        +Знижка: float
-        +Акція: boolean
-        +Категорія: string
+        +descriptions: string
+        +image: ImageField
+        +price: decimal
+        +discount: decimal
+        +quantity: int
+        +category: ForeignKey(Categories)
+        +sell_price(): decimal
     }
 
-    class Users {
-        <<Table>>
+    class Categories {
         +id: int
-        +Username: string
-        +Ім'я: string
-        +Прізвище: string
-        +Аватар: string
+        +name: string
+        +slug: string
     }
 
-    class Кошик {
-        <<Table>>
+    class Cart {
         +id: int
-        +Користувач: int
-        +Товар: int
-        +Кількість: int
-        +Ключ сесії: string
-        +Дата створення: datetime
+        +user: ForeignKey(User)
+        +product: ForeignKey(Products)
+        +quantity: int
+        +session_key: string
+        +created_timestamp: datetime
+        +products_price(): decimal
     }
 
-    class Замовлення {
-        <<Table>>
+    class Order {
         +id: int
-        +Користувач: int
-        +Дата створення: datetime
-        +Адреса доставки: string
-        +Статус оплати: string
-        +Статус доставки: string
+        +user: ForeignKey(User)
+        +created_timestamp: datetime
+        +phone_number: string
+        +requires_delivery: boolean
+        +delivery_address: string
+        +payment_on_get: boolean
+        +is_paid: boolean
+        +status: string
     }
 
-    class ЗамовленийТовар {
-        <<Table>>
+    class OrderItem {
         +id: int
-        +Замовлення: int
-        +Товар: int
-        +Кількість: int
-        +Вартість: float
+        +order: ForeignKey(Order)
+        +product: ForeignKey(Products)
+        +name: string
+        +price: decimal
+        +quantity: int
+        +created_timestamp: datetime
+        +products_price(): decimal
     }
 
-    Main --> Goods
-    Goods --> Товар
-    Users --> Кошик
-    Кошик --> Товар
-    Кошик --> Users
-    Users --> Замовлення
-    Замовлення --> ЗамовленийТовар
-    ЗамовленийТовар --> Товар
+    %% Relationships
+    User "1" --> "*" Order : creates
+    User "1" --> "1" Cart : owns
+    Cart "1" --> "*" Products : contains
+    Order "1" --> "*" OrderItem : has
+    OrderItem "*" --> "1" Products : includes
+    Products "*" --> "1" Categories : belongs to
+```"""
+
+# Save the generated Mermaid code to an `.md` file for download
+file_path = "/mnt/data/uml_diagram_classes.md"
+with open(file_path, "w") as file:
+    file.write(mermaid_code)
+
+file_path
