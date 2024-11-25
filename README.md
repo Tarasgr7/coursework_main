@@ -63,10 +63,10 @@ classDiagram
     }
 
     %% Relationships
-    User "1" --> "*" Order : creates
-    User "1" --> "1" Cart : owns
-    Cart "1" --> "*" Products : contains
-    Order "1" --> "*" OrderItem : has
-    OrderItem "*" --> "1" Products : includes
-    Products "*" --> "1" Categories : belongs to
+    User "1" --> "*" Order : створює
+    User "1" --> "1" Cart : володіє
+    Cart "1" --> "*" Products : містить
+    Order "1" --> "*" OrderItem : має
+    OrderItem "*" --> "1" Products : включає в себе
+    Products "*" --> "1" Categories : належить до
 ```
