@@ -65,7 +65,7 @@ classDiagram
     %% Relationships
     User "1" --> "*" Order : створює
     User "1" --> "1" Basket : володіє
-    Cart "1" --> "*" Products : містить
+    Basket "1" --> "*" Products : містить
     Order "1" --> "*" OrderItem : має
     OrderItem "*" --> "1" Products : включає в себе
     Products "*" --> "1" Categories : належить до
