@@ -29,7 +29,7 @@ classDiagram
         +slug: string
     }
 
-    class Cart {
+    class Basket {
         +id: int
         +user: ForeignKey(User)
         +product: ForeignKey(Products)
@@ -64,7 +64,7 @@ classDiagram
 
     %% Relationships
     User "1" --> "*" Order : створює
-    User "1" --> "1" Cart : володіє
+    User "1" --> "1" Basket : володіє
     Cart "1" --> "*" Products : містить
     Order "1" --> "*" OrderItem : має
     OrderItem "*" --> "1" Products : включає в себе
