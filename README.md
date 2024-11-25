@@ -1,5 +1,3 @@
-# Generating Mermaid UML code for the provided models.
-mermaid_code = """
 ```mermaid
 classDiagram
     %% Classes and Attributes
@@ -71,11 +69,4 @@ classDiagram
     Order "1" --> "*" OrderItem : has
     OrderItem "*" --> "1" Products : includes
     Products "*" --> "1" Categories : belongs to
-```"""
-
-# Save the generated Mermaid code to an `.md` file for download
-file_path = "/mnt/data/uml_diagram_classes.md"
-with open(file_path, "w") as file:
-    file.write(mermaid_code)
-
-file_path
+```
