@@ -1,50 +1,81 @@
+# Generating Mermaid UML code for the provided models.
+mermaid_code = """
+```mermaid
+classDiagram
+    %% Classes and Attributes
+    class User {
+        +id: int
+        +username: string
+        +email: string
+        +password: string
+        +image: ImageField
+        +phone_number: string
+    }
 
-# Інтернет-магазин на Django
+    class Products {
+        +id: int
+        +name: string
+        +slug: string
+        +descriptions: string
+        +image: ImageField
+        +price: decimal
+        +discount: decimal
+        +quantity: int
+        +category: ForeignKey(Categories)
+        +sell_price(): decimal
+    }
 
+    class Categories {
+        +id: int
+        +name: string
+        +slug: string
+    }
 
-Це повноцінний проект інтернет-магазину, розроблений на Django. У ньому я використовував AJAX-запити для динамічного оновлення кількості товарів на сторінці кошика без перезавантаження сторінки.
-## Встановлення 
+    class Cart {
+        +id: int
+        +user: ForeignKey(User)
+        +product: ForeignKey(Products)
+        +quantity: int
+        +session_key: string
+        +created_timestamp: datetime
+        +products_price(): decimal
+    }
 
-### Клонуйте репозиторій 
-```bash
-git clone https://github.com/Tarasgr7/coursework_main.git
-cd OnlineStore
-```
+    class Order {
+        +id: int
+        +user: ForeignKey(User)
+        +created_timestamp: datetime
+        +phone_number: string
+        +requires_delivery: boolean
+        +delivery_address: string
+        +payment_on_get: boolean
+        +is_paid: boolean
+        +status: string
+    }
 
-Якщо ви не використовуєте Git, ви можете просто скачати вихідний код репозиторію в ZIP-архіві і розпакувати його на свій комп'ютер.
+    class OrderItem {
+        +id: int
+        +order: ForeignKey(Order)
+        +product: ForeignKey(Products)
+        +name: string
+        +price: decimal
+        +quantity: int
+        +created_timestamp: datetime
+        +products_price(): decimal
+    }
 
-### Створіть віртуальне оточення та активуйте його
-```bash
-python -m venv venv
-source venv/bin/activate
-```
+    %% Relationships
+    User "1" --> "*" Order : creates
+    User "1" --> "1" Cart : owns
+    Cart "1" --> "*" Products : contains
+    Order "1" --> "*" OrderItem : has
+    OrderItem "*" --> "1" Products : includes
+    Products "*" --> "1" Categories : belongs to
+```"""
 
-### Встановіть бібліотеки
-```bash
-pip install -r requirements.txt
-```
+# Save the generated Mermaid code to an `.md` file for download
+file_path = "/mnt/data/uml_diagram_classes.md"
+with open(file_path, "w") as file:
+    file.write(mermaid_code)
 
-### Запустіть міграції та завантажте дані до БД
-```bash
-python manage.py migrate
-python manage.py loaddata categories.json
-python manage.py loaddata products.json
-```
-
-### Створіть адміністратора магазину
-```bash
-python manage.py createsuperuser
-```
-
-### Запустіть сервер
-```bash
-python manage.py runserver
-```
-
-### Відкрийте браузер та перейдіть за адресою
-[http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
-
-Введіть ім'я користувача та пароль адміністратора, щоб увійти до панелі керування магазином.
-
-## Готово!
-Ви успішно встановили магазин на Django та готові почати його використовувати!
+file_path
